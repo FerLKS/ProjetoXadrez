@@ -19,17 +19,45 @@ namespace tabuleiro
 
             pecas = new Peca[linhas, colunas];
         }
-        public Peca peca(int linha, int coluna) //public pois matriz Peca é privado, return uma peça
+        public Peca peca(int linha, int coluna) //public pois matriz Peça é privado, return uma peça
         {
             return pecas[linha, coluna];
         }
+        public Peca peca(Posicao pos) //public pois matriz Peça é privado, return uma peça
+        {
+            return pecas[pos.linha, pos.coluna];
+        }
+
+        public bool existePeca(Posicao pos)
+        {
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }
 
         public void colocarPeca(Peca p, Posicao pos) //quem dá a peça ao tabuleiro
-        {
+        {   if(existePeca(pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição!");
+            }
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
 
+        public bool posicaoValida(Posicao pos)
+        {
+            if(pos.linha < 0 || pos.linha >= linhas|| pos.coluna<0 ||pos.coluna >= colunas)
+            {
+                return false;
+            }
+            return true;
+        }      
+        public void validarPosicao(Posicao pos)
+        {
+            if (!posicaoValida(pos))
+            {
+                throw new TabuleiroException("Posicão invalida!");
+            }
+        }
 
     }
 }
