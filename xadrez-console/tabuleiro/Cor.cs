@@ -9,7 +9,7 @@ namespace tabuleiro
     enum Cor //tipo enumerado
     {
         Branca,             //apenas "opcionando a classe"
-        Preata,
+        Preta,
         Amarela,
         Laranja
 
