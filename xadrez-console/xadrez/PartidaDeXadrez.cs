@@ -57,7 +57,7 @@ namespace xadrez
                     T.incrementarQteMovimentos();
                     tab.colocarPeca(T, destinoT);
                 }
-                /*
+                
                 // #jogadaespecial en passant
                 if (p is Peao)
                 {
@@ -76,7 +76,7 @@ namespace xadrez
                         capturadas.Add(pecaCapturada);
                     }
                 }
-                */
+                
                 return pecaCapturada;
             }
 
@@ -90,7 +90,7 @@ namespace xadrez
                     capturadas.Remove(pecaCapturada);
                 }
                 tab.colocarPeca(p, origem);
-            /*
+            
                 // #jogadaespecial roque pequeno
                 if (p is Rei && destino.coluna == origem.coluna + 2)
                 {
@@ -129,7 +129,7 @@ namespace xadrez
                         tab.colocarPeca(peao, posP);
                     }
                 }
-                */
+                
             }
 
             public void realizaJogada(Posicao origem, Posicao destino)
@@ -143,7 +143,7 @@ namespace xadrez
                 }
 
                 Peca p = tab.peca(destino);
-                /*
+                
                 // #jogadaespecial promocao
                 if (p is Peao)
                 {
@@ -156,7 +156,7 @@ namespace xadrez
                         pecas.Add(dama);
                     }
                 }
-                */
+                
                 if (estaEmXeque(adversaria(jogadorAtual)))
                 {
                     xeque = true;
@@ -175,7 +175,7 @@ namespace xadrez
                     turno++;
                     mudaJogador();
                 }
-                /*
+                
                 // #jogadaespecial en passant
                 if (p is Peao && (destino.linha == origem.linha - 2 || destino.linha == origem.linha + 2))
                 {
@@ -185,7 +185,7 @@ namespace xadrez
                 {
                     vulneravelEnPassant = null;
                 }
-                */
+                
             }
 
             public void validarPosicaoDeOrigem(Posicao pos)
